@@ -10,7 +10,7 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 20px;
-      background: #C1E1D1; /* Sfondo verde salvia */
+      background: #C1E1D1; /* Verde salvia */
       color: #333;
     }
 
@@ -50,21 +50,25 @@
       line-height: 1.7em;
     }
 
-    .info p {
-      margin: 12px 0;
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 14px;
     }
 
-    .info i {
+    .info-item i {
       font-style: normal;
-      margin-right: 5px;
+      margin-right: 8px;
+      min-width: 24px;
+      text-align: center;
     }
 
-    a {
+    .info-item a {
       color: #2a5d75;
       text-decoration: underline;
     }
 
-    a:hover {
+    .info-item a:hover {
       color: #000;
       text-decoration: none;
     }
@@ -95,30 +99,35 @@
     <h1>Fabiana Masia</h1>
     <div class="role">Fisioterapista</div>
 
-    <!-- Contatti -->
+    <!-- Informazioni di contatto -->
     <div class="info">
-      <p>
+      <div class="info-item">
         <i>📍</i>
-        <a href="https://www.google.com/maps/search/?api=1&query=Corso+Leone+Giordano+5,+Livorno+Ferraris" target="_blank">
-          Corso Leone Giordano 5,<br>
-          <span style="padding-left: 25px;">Livorno Ferraris (VC)</span>
-        </a>
-      </p>
-      <p>
+        <div>
+          <a href="https://www.google.com/maps/search/?api=1&query=Corso+Leone+Giordano+5,+Livorno+Ferraris" target="_blank">
+            Corso Leone Giordano 5,<br>
+            Livorno Ferraris (VC)
+          </a>
+        </div>
+      </div>
+
+      <div class="info-item">
         <i>📞</i>
-        <a href="tel:+393493174624">349 3174624</a>
-      </p>
-      <p>
+        <a href="tel:+393493174624">+39 349 3174624</a>
+      </div>
+
+      <div class="info-item">
         <i>✉️</i>
         <a href="mailto:fabiana.masia@gmail.com">fabiana.masia@gmail.com</a>
-      </p>
-      <p>
+      </div>
+
+      <div class="info-item">
         <i>🌐</i>
         <a href="https://www.fisiomasia.it" target="_blank">www.fisiomasia.it</a>
-      </p>
+      </div>
     </div>
 
-    <!-- Pulsante per scaricare il contatto -->
+    <!-- Pulsante salva contatto -->
     <a class="btn" href="fabiana.vcf" download="FabianaMasia.vcf">Salva Contatto</a>
   </div>
 
