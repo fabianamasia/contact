@@ -215,23 +215,49 @@
     .chev { flex: none; width: 18px; height: 18px; color: #bbb; }
 
     /* Trattamenti (gli stessi elencati sul biglietto) */
-    .services { margin-top: 22px; text-align: left; }
+    .services {
+      margin-top: 22px;
+      padding: 16px 10px 12px;
+      background: var(--salvia-tenue);
+      border-radius: 16px;
+      text-align: center;
+    }
     .services h2 {
-      margin: 0 0 10px;
+      margin: 0 0 8px;
       color: var(--grigio);
       font-size: 0.72rem;
       font-weight: 700;
       letter-spacing: 0.14em;
       text-transform: uppercase;
     }
-    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
-    .chips li {
-      padding: 7px 12px;
-      border-radius: 999px;
-      background: var(--salvia-tenue);
+    /* Due trattamenti per riga, separati da una stanghetta (come sul biglietto) */
+    .tlist { margin: 0; padding: 0; list-style: none; }
+    .tlist li {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 5px 0;
       color: var(--testo);
-      font-size: 0.9rem;
-      line-height: 1.2;
+      font-size: 0.97rem;
+      line-height: 1.35;
+    }
+    .tlist .sep {
+      flex: none;
+      width: 1.5px;
+      height: 1.05em;
+      margin: 0 10px;
+      background: var(--verde);
+    }
+    /* Schermi stretti: una voce per riga, senza stanghette */
+    @media (max-width: 379px) {
+      h1 { font-size: 1.4rem; }
+      .tlist li { font-size: 0.9rem; }
+      .tlist .sep { margin: 0 8px; }
+    }
+    @media (max-width: 355px) {
+      .tlist li { flex-direction: column; padding: 0; }
+      .tlist li > span:not(.sep) { padding: 4px 0; }
+      .tlist .sep { display: none; }
     }
 
     .foot {
@@ -318,15 +344,11 @@
 
       <section class="services" aria-labelledby="tratt">
         <h2 id="tratt">Trattamenti</h2>
-        <ul class="chips">
-          <li>Riabilitazione ortopedica</li>
-          <li>Riabilitazione neurologica</li>
-          <li>Terapia manuale</li>
-          <li>Linfodrenaggio</li>
-          <li>Clinical Pilates</li>
-          <li>Ginnastica ipopressiva</li>
-          <li>Pavimento pelvico</li>
-          <li>Tecar e ultrasuoni</li>
+        <ul class="tlist">
+          <li><span>Riabilitazione ortopedica e neurologica</span></li>
+          <li><span>Terapia manuale</span><span class="sep" aria-hidden="true"></span><span>Linfodrenaggio</span></li>
+          <li><span>Clinical Pilates</span><span class="sep" aria-hidden="true"></span><span>Ginnastica ipopressiva</span></li>
+          <li><span>Pavimento pelvico</span><span class="sep" aria-hidden="true"></span><span>Tecar e ultrasuoni</span></li>
         </ul>
       </section>
 
