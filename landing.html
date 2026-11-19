@@ -2,139 +2,351 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fabiana Masia - Fisioterapista</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Dott.ssa Fabiana Masia - Fisioterapista</title>
+  <meta name="description" content="Studio Fisioterapico Dott.ssa Fabiana Masia - Livorno Ferraris (VC). Salva il contatto, chiama o prenota un appuntamento." />
+  <meta name="theme-color" content="#C1E1D1" />
+  <meta property="og:title" content="Dott.ssa Fabiana Masia - Fisioterapista" />
+  <meta property="og:description" content="Studio Fisioterapico a Livorno Ferraris (VC). Riceve su appuntamento, anche a domicilio." />
+  <meta property="og:image" content="https://fabianamasia.github.io/contact/photo.jpg" />
+  <link rel="icon" href="photo.jpg" />
+  <link rel="apple-touch-icon" href="photo.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet" />
 
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 20px;
-      background: #C1E1D1; /* Verde salvia come biglietto da visita */
-      color: #333;
+    /* Colori invariati: gli stessi della pagina attuale e del biglietto da visita */
+    :root {
+      --salvia: #C1E1D1;
+      --verde: #7da67b;
+      --verde-scuro: #6e956d;
+      --link: #2a5d75;
+      --testo: #333;
+      --titolo: #222;
+      --grigio: #666;
+      --salvia-tenue: rgba(193, 225, 209, 0.45);
     }
 
-    .container {
+    * { box-sizing: border-box; }
+
+    html { -webkit-text-size-adjust: 100%; }
+
+    body {
+      font-family: "Lato", -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      margin: 0;
+      padding: 20px 16px calc(28px + env(safe-area-inset-bottom));
+      background: var(--salvia);
+      color: var(--testo);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .card {
       max-width: 450px;
       margin: 0 auto;
       background: #fff;
-      padding: 25px;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.10);
+      overflow: hidden;
       text-align: center;
     }
 
-    img {
-      width: 180px;
-      height: auto;
-      border-radius: 50%;
-      margin-bottom: 20px;
+    /* Fascia verde con bordo curvo, come l'arco del biglietto */
+    .hero {
+      height: 112px;
+      background: linear-gradient(170deg, var(--salvia) 0%, var(--verde) 135%);
+      border-radius: 0 0 50% 50% / 0 0 34px 34px;
     }
 
+    .avatar {
+      display: block;
+      width: 132px;
+      height: 132px;
+      margin: -74px auto 0;
+      border-radius: 50%;
+      border: 5px solid #fff;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.14);
+      object-fit: cover;
+      background: #fff;
+    }
+
+    .body { padding: 14px 22px 26px; }
+
     h1 {
-      font-size: 1.8em;
-      margin: 0 0 10px;
-      color: #222;
+      font-family: "Montserrat", "Lato", Arial, sans-serif;
+      font-weight: 700;
+      font-size: 1.55rem;
+      line-height: 1.2;
+      margin: 0;
+      color: var(--titolo);
     }
 
     .role {
-      color: #666;
-      font-size: 1.2em;
-      margin-bottom: 20px;
+      margin: 6px 0 0;
+      color: var(--grigio);
+      font-size: 0.86rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
     }
 
-    .info {
-      text-align: left;
-      margin: 20px 0;
-      font-size: 1.1em;
-      line-height: 1.7em;
-    }
-
-    .info-item {
-      display: flex;
-      align-items: flex-start;
-      margin-bottom: 14px;
-    }
-
-    .info-item i {
-      font-style: normal;
-      margin-right: 8px;
-      min-width: 24px;
-      text-align: center;
-      line-height: 1.6;
-    }
-
-    .info-item a {
-      color: #2a5d75;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      display: inline-block;
-    }
-
-    .info-item a:hover {
-      color: #000;
-      font-weight: bold;
-      transform: scale(1.02);
-    }
-
+    /* Pulsante principale */
     .btn {
-      display: inline-block;
-      background: #7da67b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      min-height: 56px;
+      margin-top: 22px;
+      padding: 14px 20px;
+      background: var(--verde);
       color: #fff;
-      padding: 14px 28px;
+      font-family: "Montserrat", "Lato", Arial, sans-serif;
+      font-weight: 700;
+      font-size: 1.08rem;
       text-decoration: none;
-      border-radius: 6px;
-      margin-top: 25px;
-      font-size: 1.1em;
-      transition: background 0.2s ease;
+      border-radius: 16px;
+      box-shadow: 0 6px 16px rgba(125, 166, 123, 0.45);
+      transition: background 0.2s ease, transform 0.1s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .btn:hover { background: var(--verde-scuro); }
+    .btn:active { transform: scale(0.98); background: var(--verde-scuro); }
+    .btn svg { width: 22px; height: 22px; flex: none; }
+
+    /* Istruzioni che compaiono solo su Android dopo il tocco */
+    .hint {
+      margin-top: 12px;
+      padding: 14px 16px;
+      background: var(--salvia-tenue);
+      border: 1.5px solid var(--verde);
+      border-radius: 16px;
+      text-align: left;
+      font-size: 0.98rem;
+      line-height: 1.45;
+    }
+    .hint[hidden] { display: none; }
+    .hint strong { color: var(--titolo); }
+    .hint .hint-title {
+      display: block;
+      font-family: "Montserrat", "Lato", Arial, sans-serif;
+      font-weight: 700;
+      color: var(--titolo);
+      margin-bottom: 6px;
+    }
+    .hint ol { margin: 0; padding-left: 1.25em; }
+    .hint li + li { margin-top: 2px; }
+
+    /* Azioni rapide */
+    .quick {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .quick a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 48px;
+      padding: 10px 12px;
+      border: 1.5px solid var(--verde);
+      border-radius: 14px;
+      color: var(--titolo);
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .quick a:active { background: var(--salvia-tenue); }
+    .quick svg { width: 20px; height: 20px; flex: none; color: var(--verde-scuro); }
+
+    /* Elenco contatti */
+    .list {
+      list-style: none;
+      margin: 20px 0 0;
+      padding: 0;
+      text-align: left;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+    }
+    .list li { border-bottom: 1px solid rgba(0, 0, 0, 0.08); }
+    .row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 13px 2px;
+      text-decoration: none;
+      color: inherit;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .row:active { background: var(--salvia-tenue); }
+    .ic {
+      flex: none;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--salvia-tenue);
+      color: var(--verde-scuro);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .ic svg { width: 20px; height: 20px; }
+    .tx { flex: 1; min-width: 0; }
+    .tx small {
+      display: block;
+      color: var(--grigio);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 1px;
+    }
+    .tx span {
+      display: block;
+      color: var(--link);
+      font-size: 1.05rem;
+      line-height: 1.35;
+      overflow-wrap: anywhere;
+    }
+    .chev { flex: none; width: 18px; height: 18px; color: #bbb; }
+
+    /* Trattamenti (gli stessi elencati sul biglietto) */
+    .services { margin-top: 22px; text-align: left; }
+    .services h2 {
+      margin: 0 0 10px;
+      color: var(--grigio);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+    .chips li {
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: var(--salvia-tenue);
+      color: var(--testo);
+      font-size: 0.9rem;
+      line-height: 1.2;
     }
 
-    .btn:hover {
-      background: #6e956d;
+    .foot {
+      margin: 20px 0 0;
+      color: var(--grigio);
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+    .foot b { color: var(--testo); }
+
+    @media (max-width: 350px) {
+      .body { padding-left: 16px; padding-right: 16px; }
+      h1 { font-size: 1.35rem; }
     }
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <!-- Foto profilo -->
-    <img src="photo.jpg" alt="Foto di Fabiana Masia" />
+  <main class="card">
+    <div class="hero"></div>
+    <img class="avatar" src="photo.jpg" width="132" height="132" alt="Foto di Fabiana Masia" />
 
-    <!-- Nome e ruolo -->
-    <h1>Fabiana Masia</h1>
-    <div class="role">Fisioterapista</div>
+    <div class="body">
+      <h1>Dott.ssa Fabiana Masia</h1>
+      <p class="role">Fisioterapista</p>
 
-    <!-- Contatti -->
-    <div class="info">
-      <div class="info-item">
-        <i>📍</i>
-        <div>
-          <a href="https://www.google.com/maps/search/?api=1&query=Corso+Leone+Giordano+5,+Livorno+Ferraris" target="_blank">
-            Corso Leone Giordano 5,<br>
-            Livorno Ferraris (VC)
+      <!-- Pulsante per salvare il contatto (stesso link di prima: su iOS si comporta come sempre) -->
+      <a class="btn" id="save" href="fabiana.vcf" download="FabianaMasia.vcf">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="8" r="4"/><path d="M2.5 20c0-3.6 3.3-6 7.5-6 1.2 0 2.300.200 3.300.550"/><path d="M19 14v6M16 17h6"/></svg>
+        Salva contatto
+      </a>
+
+      <!-- Visibile solo su Android, dopo il tocco su "Salva contatto" -->
+      <div class="hint" id="hint" role="status" hidden>
+        <span class="hint-title">Contatto scaricato ✓</span>
+        <ol>
+          <li>Tocca <strong>Apri</strong> nell'avviso di download</li>
+          <li>Se richiesto, scegli <strong>Contatti</strong></li>
+          <li>Tocca <strong>Salva</strong></li>
+        </ol>
+      </div>
+
+      <div class="quick">
+        <a href="tel:+393493174624">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.500 1.500a11 11 0 0 0 5 5l1.500-2.500 5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+          Chiama
+        </a>
+        <a href="https://wa.me/393493174624" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.650-3.800a9 9 0 1 1 3.400 2.900L3 21z"/><path d="M9 10a.500.500 0 0 0 1 0V9a.500.500 0 0 0-1 0v1a5 5 0 0 0 5 5h1a.500.500 0 0 0 0-1h-1a.500.500 0 0 0 0 1"/></svg>
+          WhatsApp
+        </a>
+      </div>
+
+      <ul class="list">
+        <li>
+          <a class="row" href="https://www.google.com/maps/search/?api=1&query=Corso+Leone+Giordano+5,+Livorno+Ferraris" target="_blank" rel="noopener">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.200-7-11a7 7 0 0 1 14 0c0 4.800-7 11-7 11z"/><circle cx="12" cy="10" r="2.500"/></svg></span>
+            <span class="tx"><small>Studio</small><span>Corso Leone Giordano 5,<br>Livorno Ferraris (VC)</span></span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
           </a>
-        </div>
-      </div>
+        </li>
+        <li>
+          <a class="row" href="tel:+393493174624">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.500 1.500a11 11 0 0 0 5 5l1.500-2.500 5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></span>
+            <span class="tx"><small>Telefono</small><span>349 3174624</span></span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+          </a>
+        </li>
+        <li>
+          <a class="row" href="mailto:fabiana.masia@gmail.com">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
+            <span class="tx"><small>Email</small><span>fabiana.masia@gmail.com</span></span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+          </a>
+        </li>
+        <li>
+          <a class="row" href="https://www.fisiomasia.it" target="_blank" rel="noopener">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span>
+            <span class="tx"><small>Sito web</small><span>www.fisiomasia.it</span></span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+          </a>
+        </li>
+      </ul>
 
-      <div class="info-item">
-        <i>📞</i>
-        <a href="tel:+393493174624"> 349 3174624</a>
-      </div>
+      <section class="services" aria-labelledby="tratt">
+        <h2 id="tratt">Trattamenti</h2>
+        <ul class="chips">
+          <li>Riabilitazione ortopedica</li>
+          <li>Riabilitazione neurologica</li>
+          <li>Terapia manuale</li>
+          <li>Clinical Pilates</li>
+          <li>Ginnastica ipopressiva</li>
+          <li>Pavimento pelvico</li>
+          <li>Tecar e ultrasuoni</li>
+        </ul>
+      </section>
 
-      <div class="info-item">
-        <i>✉️</i>
-        <a href="mailto:fabiana.masia@gmail.com"> fabiana.masia@gmail.com</a>
-      </div>
-
-      <div class="info-item">
-        <i>🌐</i>
-        <a href="https://www.fisiomasia.it" target="_blank"> www.fisiomasia.it</a>
-      </div>
+      <p class="foot">Riceve in studio <b>su appuntamento</b><br>Trattamenti anche <b>a domicilio</b></p>
     </div>
+  </main>
 
-    <!-- Pulsante per salvare il contatto -->
-    <a class="btn" href="fabiana.vcf" download="FabianaMasia.vcf">Salva Contatto</a>
-  </div>
+  <script>
+    // Android scarica sempre il file .vcf invece di aprire subito la rubrica:
+    // dopo il tocco mostriamo i passaggi per completare il salvataggio.
+    // Su iPhone/iPad non cambia nulla.
+    (function () {
+      if (!/Android/i.test(navigator.userAgent || "")) return;
+      var btn = document.getElementById("save");
+      var hint = document.getElementById("hint");
+      if (!btn || !hint) return;
+      btn.addEventListener("click", function () {
+        hint.hidden = false;
+      });
+    })();
+  </script>
 
 </body>
 </html>
